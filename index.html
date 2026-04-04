@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contora — Content Strategy for Creators</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       STYLES — all visual styling is in css/styles.css
+       To change colors, layout, fonts — open that file
+       ============================================================ -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       CUSTOM CURSOR — glowing blue dot
+       To remove: delete these 3 divs + remove cursor.js below
+       ============================================================ -->
+  <div id="cur-glow"></div>
+  <div id="cur-ring"></div>
+  <div id="cur-dot"></div>
+
+
+  <!-- ============================================================
+       NAVBAR
+       To change logo text: edit "Contora" below
+       To change nav button text: edit "Get Started"
+       ============================================================ -->
+  <nav>
+    <div class="logo">Contora</div>
+    <div class="nav-r">
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">🌑</button>
+      <button class="btn-nav" onclick="showQuiz()">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- TOAST — "Copied!" notification popup -->
+  <div class="toast" id="toast">Copied to clipboard ✓</div>
+
+
+  <!-- ============================================================
+       LANDING PAGE
+       ============================================================ -->
+  <div class="page active" id="landing">
+
+    <!-- HERO SECTION — the big headline at the top -->
+    <div class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-card">
+        <div class="badge"><span class="dot"></span> Free · AI-Powered · No signup needed</div>
+
+        <!-- ⬇️ EDIT THIS to change the main headline -->
+        <h1>You're <span class="blue">not stuck</span>.<br><span class="hero-grad">You're just guessing.</span></h1>
+
+        <!-- ⬇️ EDIT THIS to change the subtitle text -->
+        <p class="hero-sub">Most creators don’t fail because they’re bad — they fail because they’re guessing what to post. In 2 minutes, get a strategy that actually makes sense for your niche.</p>
+
+        <div class="cta-row">
+          <button class="btn-primary" onclick="showQuiz()">Fix My Strategy →</button>
+          <button class="btn-sm-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})">
+            How It Works →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+     <div class="section">
+  <div class="section-tag">Why you're stuck</div>
+  <div class="section-title">It’s not your effort.</div>
+  <div class="section-sub">Most creators aren’t lazy — they’re just guessing what works.</div>
+
+  <div class="steps">
+    <div class="step-card">
+      <div class="step-title">No direction</div>
+      <div class="step-desc">You post randomly without a clear plan.</div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-title">Dead trends</div>
+      <div class="step-desc">You copy things that already stopped working.</div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-title">No feedback</div>
+      <div class="step-desc">You don’t know what’s working or not.</div>
+    </div>
+  </div>
+</div>
+<!-- STATS STRIP — the 4 numbers below hero -->
+    <!-- ⬇️ Edit stat-n to change numbers, stat-l to change labels -->
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-n">100%</div><div class="stat-l">Free forever</div></div>
+      <div class="stat-item"><div class="stat-n">AI</div><div class="stat-l">Personalized</div></div>
+      <div class="stat-item"><div class="stat-n">2 min</div><div class="stat-l">Setup time</div></div>
+      <div class="stat-item"><div class="stat-n">6</div><div class="stat-l">Questions only</div></div>
+    </div>
+
+    <div class="section">
+  <div class="section-tag">Preview</div>
+  <div class="section-title">This is what you’ll get</div>
+  <div class="section-sub">A clear, no-BS strategy based on your answers.</div>
+
+
+ <div class="preview-grid">
+
+  <div class="step-card preview-card">
+    <div class="step-title">📄 Fitness Strategy</div>
+    <div class="step-desc">
+      <strong>Niche:</strong> Fitness<br>
+      <strong>Content Style:</strong> Story + Hook videos<br>
+      <strong>Posting:</strong> 2x daily<br><br>
+
+      <strong>🔥 Hook Example:</strong><br>
+      "Stop doing this if you want abs..."<br><br>
+
+      <strong>📘 Plan:</strong><br>
+      Day 1 — Problem video<br>
+      Day 2 — Story video<br>
+      Day 3 — Authority post
+    </div>
+  </div>
+
+  <div class="step-card preview-card">
+    <div class="step-title">💼 Business Strategy</div>
+    <div class="step-desc">
+      <strong>Niche:</strong> Business<br>
+      <strong>Content Style:</strong> Value + Authority<br>
+      <strong>Posting:</strong> 1-2x daily<br><br>
+
+      <strong>🔥 Hook Example:</strong><br>
+      "Nobody tells you this about making money..."<br><br>
+
+      <strong>📘 Plan:</strong><br>
+      Day 1 — Value post<br>
+      Day 2 — Case study<br>
+      Day 3 — Personal insight
+    </div>
+  </div>
+
+  <div class="step-card preview-card">
+    <div class="step-title">🎬 Editing Strategy</div>
+    <div class="step-desc">
+      <strong>Niche:</strong> Editing<br>
+      <strong>Content Style:</strong> Before/After + Tutorials<br>
+      <strong>Posting:</strong> Daily<br><br>
+
+      <strong>🔥 Hook Example:</strong><br>
+      "This edit took me 10 minutes..."<br><br>
+
+      <strong>📘 Plan:</strong><br>
+      Day 1 — Before/After<br>
+      Day 2 — Tutorial<br>
+      Day 3 — Tips
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+  
+    <!-- HOW IT WORKS — 3 step cards -->
+    <!-- ⬇️ Edit step-title and step-desc to change each card -->
+    <div class="section" id="how-it-works">
+      <div class="section-tag">How It Works</div>
+      <div class="section-title">Three steps to your strategy</div>
+      <div class="section-sub">No fluff. No generic advice. Just a real plan built around your specific niche and situation.</div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-title">Tell us about yourself</div>
+          <div class="step-desc">Answer 6 quick questions — niche, editing style, skill level, available time, and what you're trying to achieve.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-title">AI builds your plan</div>
+          <div class="step-desc">Contora analyzes your answers and generates a strategy specific to your situation — not a generic template everyone gets.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-title">Start creating</div>
+          <div class="step-desc">Get your hook library, content ideas, posting times, roadmap, hook tester, and a chat assistant — all in one place.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FEATURES — 6 cards "What You Get" -->
+    <!-- ⬇️ Edit feat-title and feat-desc for each feature card -->
+    <div class="features-bg">
+      <div class="section">
+        <div class="section-tag">What You Get</div>
+        <div class="section-title">Everything a creator needs</div>
+        <div class="section-sub">Not just a content calendar. A full system built around your niche, style, and goals.</div>
+        <div class="features">
+          <div class="feat"><div class="feat-icon">🪝</div><div class="feat-title">Hook Library</div><div class="feat-desc">4 hooks written specifically for your niche and platform. Not templates — actual lines you can use tomorrow. Click to copy instantly.</div></div>
+          <div class="feat"><div class="feat-icon">💡</div><div class="feat-title">500+ Content Ideas</div><div class="feat-desc">A massive idea bank specific to your niche. Shuffle endlessly — you'll never see the same idea twice in 100+ shuffles.</div></div>
+          <div class="feat"><div class="feat-icon">⏰</div><div class="feat-title">Best Posting Times</div><div class="feat-desc">Data-backed optimal posting windows for your platform. Includes why each time slot works and how often you should post.</div></div>
+          <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Hook Tester</div><div class="feat-desc">Paste any hook and get a score out of 100 across 7 real copywriting dimensions — with specific fixes, not vague feedback.</div></div>
+          <div class="feat"><div class="feat-icon">📅</div><div class="feat-title">Weekly Roadmap</div><div class="feat-desc">A step-by-step plan built around your time availability. Week 1 to Month 2 — specific actions, not generic advice.</div></div>
+          <div class="feat"><div class="feat-icon">💾</div><div class="feat-title">Save & Export</div><div class="feat-desc">Email your full strategy to yourself in one click. Everything in one place so you can come back to it anytime.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BANNER 1 -->
+    <div class="cta-section">
+      <div class="cta-inner">
+        <div class="cta-title">Stop guessing. Start growing.</div>
+        <div class="cta-sub">Build your personalized content strategy in 2 minutes. Free, always.</div>
+        <button class="btn-primary" onclick="showQuiz()">Build My Strategy →</button>
+      </div>
+    </div>
+
+    <!-- MARQUEE — scrolling niche strip -->
+    <!-- ⬇️ Add/remove marquee-item divs to change the scrolling labels -->
+    <div class="marquee-section">
+      <div class="marquee-track" id="marqueeTrack">
+        <div class="marquee-item"><span>🎬</span> Cinematic Editing</div>
+        <div class="marquee-item"><span>💡</span> Self Improvement</div>
+        <div class="marquee-item"><span>🤖</span> AI & Tech</div>
+        <div class="marquee-item"><span>🍳</span> Food & Cooking</div>
+        <div class="marquee-item"><span>💪</span> Fitness & Health</div>
+        <div class="marquee-item"><span>🎨</span> Art & Painting</div>
+        <div class="marquee-item"><span>🎵</span> Music & Audio</div>
+        <div class="marquee-item"><span>💼</span> business & Finance</div>
+        <div class="marquee-item"><span>✈️</span> Lifestyle & Vlogs</div>
+        <div class="marquee-item"><span>📚</span> Education</div>
+        <div class="marquee-item"><span>🎮</span> Gaming</div>
+        <div class="marquee-item"><span>✏️</span> Your Niche</div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="marquee-item"><span>🎬</span> Cinematic Editing</div>
+        <div class="marquee-item"><span>💡</span> Self Improvement</div>
+        <div class="marquee-item"><span>🤖</span> AI & Tech</div>
+        <div class="marquee-item"><span>🍳</span> Food & Cooking</div>
+        <div class="marquee-item"><span>💪</span> Fitness & Health</div>
+        <div class="marquee-item"><span>🎨</span> Art & Painting</div>
+        <div class="marquee-item"><span>🎵</span> Music & Audio</div>
+        <div class="marquee-item"><span>💼</span> Business & Finance</div>
+        <div class="marquee-item"><span>✈️</span> Lifestyle & Vlogs</div>
+        <div class="marquee-item"><span>📚</span> Education</div>
+        <div class="marquee-item"><span>🎮</span> Gaming</div>
+        <div class="marquee-item"><span>✏️</span> Your Niche</div>
+      </div>
+    </div>
+
+    <!-- VISUAL FEATURE CARDS — 4-column preview grid -->
+    <div class="more-section">
+      <div class="more-inner">
+        <div class="section-tag u-text-center">Everything Included</div>
+        <div class="more-title">...and so much more</div>
+        <div class="more-sub">Every tool a creator needs — hooks, ideas, timing, analysis. All free, all in one place.</div>
+        <div class="more-grid">
+
+          <div class="more-card">
+            <div class="more-card-vis more-card-vis--score">
+              <div class="more-demo u-text-center">
+                <div class="more-demo-label more-demo-label--blue">Hook score</div>
+                <div class="more-demo-score-ring">
+                  <span>87</span>
+                  <span class="more-demo-score-denom">/100</span>
+                </div>
+                <div class="more-demo-bars">
+                  <div class="more-demo-bar"><div class="more-demo-bar-fill more-demo-bar-fill--blue" style="width:90%"></div></div>
+                  <div class="more-demo-bar"><div class="more-demo-bar-fill more-demo-bar-fill--green" style="width:75%"></div></div>
+                  <div class="more-demo-bar"><div class="more-demo-bar-fill more-demo-bar-fill--blue" style="width:85%"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="more-card-body">
+              <div class="more-card-title">Hook Tester</div>
+              <div class="more-card-desc">Score any hook across 7 copywriting dimensions. Get specific fixes, not vague feedback.</div>
+              <div class="more-card-link" onclick="showQuiz()">Try it free →</div>
+            </div>
+          </div>
+
+          <div class="more-card">
+            <div class="more-card-vis more-card-vis--ideas">
+              <div class="more-demo">
+                <div class="more-demo-label more-demo-label--green">💡 Content ideas</div>
+                <div class="more-demo-idea-row">
+                  <div class="more-demo-chip">The editing mistake I made for 2 years →</div>
+                  <div class="more-demo-chip">I tested every LUT method — here's what works</div>
+                  <div class="more-demo-chip more-demo-chip--cta">🔀 Load 5 more →</div>
+                </div>
+              </div>
+            </div>
+            <div class="more-card-body">
+              <div class="more-card-title">Infinite Ideas</div>
+              <div class="more-card-desc">Algorithmically generated ideas for your niche. Shuffle forever — it never repeats.</div>
+              <div class="more-card-link" onclick="showQuiz()">Get ideas →</div>
+            </div>
+          </div>
+
+          <div class="more-card">
+            <div class="more-card-vis more-card-vis--times">
+              <div class="more-demo">
+                <div class="more-demo-label more-demo-label--amber">⏰ Best times</div>
+                <div class="more-demo-times-grid">
+                  <div class="more-demo-time-cell">
+                    <div class="dow">Tuesday</div>
+                    <div class="slot">11 AM</div>
+                    <div class="tag" style="color:var(--orange)">🔥 BEST</div>
+                  </div>
+                  <div class="more-demo-time-cell">
+                    <div class="dow">Thursday</div>
+                    <div class="slot slot--green">7 PM</div>
+                    <div class="tag" style="color:var(--green)">✓ GOOD</div>
+                  </div>
+                  <div class="more-demo-time-cell">
+                    <div class="dow">Saturday</div>
+                    <div class="slot">10 AM</div>
+                    <div class="tag" style="color:var(--green)">✓ GOOD</div>
+                  </div>
+                  <div class="more-demo-time-cell">
+                    <div class="dow">Sunday</div>
+                    <div class="slot">6 PM</div>
+                    <div class="tag" style="color:var(--orange)">🔥 BEST</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="more-card-body">
+              <div class="more-card-title">Best Posting Times</div>
+              <div class="more-card-desc">Data-backed optimal windows for your platform. Know exactly when to post.</div>
+              <div class="more-card-link" onclick="showQuiz()">See your times →</div>
+            </div>
+          </div>
+
+          <div class="more-card">
+            <div class="more-card-vis more-card-vis--chat">
+              <div class="more-demo">
+                <div class="more-demo-label more-demo-label--muted">💬 Ask Contora</div>
+                <div class="more-demo-chat-stack">
+                  <div class="more-demo-bubble more-demo-bubble--user">Give me 3 hooks for my cinematic editing niche 🎬</div>
+                  <div class="more-demo-bubble more-demo-bubble--ai">Here's what'll stop the scroll for cinematics...</div>
+                </div>
+              </div>
+            </div>
+            <div class="more-card-body">
+              <div class="more-card-title">Ask Contora AI</div>
+              <div class="more-card-desc">Chat with an AI that knows your niche. Hooks, trends, script ideas — ask anything.</div>
+              <div class="more-card-link" onclick="showQuiz()">Start chatting →</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <!-- ⬇️ Edit testi-text, testi-name, testi-handle to change reviews -->
+    <div class="testi-section">
+      <div class="testi-inner">
+        <div class="section-tag" style="text-align:center">What Creators Say</div>
+        <div class="section-title" style="text-align:center">Creators who used Contora</div>
+        <div class="section-sub" style="text-align:center;max-width:100%">Real feedback from real creators across niches.</div>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-stars">⭐⭐⭐⭐</div>
+            <div class="testi-text"> The hook tester is genuinely different. It told me exactly WHY my hook wasn't working.</div>
+            <div class="testi-author">
+              <div class="testi-avatar">R</div>
+              <div><div class="testi-name">Riya S.</div><div class="testi-handle">Cinematic Editing · Instagram</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testi-text">"I've been stuck at the same follower count for months. The roadmap Contora gave me was the first thing that felt actually doable for someone with a 9-5."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">A</div>
+              <div><div class="testi-name">Arjun M.</div><div class="testi-handle">Self Improvement · YouTube Shorts</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+            <div class="testi-text">"The content ideas never repeat. I've hit shuffle like 40 times and every single idea is different and actually relevant to food content. Insane for free."</div>
+            <div class="testi-author">
+              <div class="testi-avatar">P</div>
+              <div><div class="testi-name">Priya K.</div><div class="testi-handle">Food & Cooking · TikTok</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <!-- ⬇️ Add a new faq-item div to add a question. Edit faq-q and faq-a text. -->
+    <div class="faq-section">
+      <div class="faq-inner">
+        <div class="section-tag" style="text-align:center">FAQ</div>
+        <div class="section-title" style="text-align:center">Common questions</div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Is Contora really free? <span class="faq-icon">+</span></div>
+            <div class="faq-a">Yes — 100% free, no credit card, no signup. Build as many strategies as you want.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT? <span class="faq-icon">+</span></div>
+            <div class="faq-a">ChatGPT is a general tool. Contora is built specifically for creators — it understands your niche, platform, skill level and time, and gives strategy that's actually relevant to your situation. Not a generic response.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Will two creators get the same strategy? <span class="faq-icon">+</span></div>
+            <div class="faq-a">No. The strategy is built from your specific answers — niche, platform, editing style, skill level, time, and goal. Two people with the same niche but different skill levels will get completely different plans.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">What niches does Contora support? <span class="faq-icon">+</span></div>
+            <div class="faq-a">All niches — we have built-in support for Cinematic Editing, Self Improvement, AI & Tech, Gaming, Business, Lifestyle, Art, Food, Fitness, Music, Education, and a custom option where you type any niche you want.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How do I save my strategy? <span class="faq-icon">+</span></div>
+            <div class="faq-a">After your strategy is generated, hit "Email to myself" to send the full strategy to your email. Or use "Copy everything" to paste it anywhere you like.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BANNER 2 (final) -->
+    <div class="cta-section">
+      <div class="cta-inner">
+        <div class="cta-title">Your strategy is 2 minutes away.</div>
+        <div class="cta-sub">Free. No signup. No credit card. Just your personalized content plan.</div>
+        <button class="btn-primary" onclick="showQuiz()">Build My Strategy →</button>
+      </div>
+    </div>
+
+  </div><!-- end #landing -->
+
+
+  <!-- ============================================================
+       FOOTER
+       To add/remove links: find footer-links divs below
+       ============================================================ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-f">Contora</div>
+        <p>AI-powered content strategy for creators. Built for real people with real niches — not corporate marketing teams.</p>
+        <div class="footer-socials">
+          <!-- ⬇️ Replace href="#" with your actual social links -->
+          <a class="footer-social" href="#" title="Instagram">📸</a>
+          <a class="footer-social" href="#" title="TikTok">🎵</a>
+          <a class="footer-social" href="#" title="YouTube">▶️</a>
+          <a class="footer-social" href="#" title="Twitter/X">✖</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <div class="footer-links">
+          <a class="footer-link" onclick="showQuiz()">Build My Strategy</a>
+          <a class="footer-link" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">How It Works</a>
+          <a class="footer-link" onclick="document.querySelector('.more-section').scrollIntoView({behavior:'smooth'})">Features</a>
+          <a class="footer-link" href="#">Hook Tester</a>
+          <a class="footer-link" href="#">Content Ideas</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Niches</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#">Cinematic Editing</a>
+          <a class="footer-link" href="#">Self Improvement</a>
+          <a class="footer-link" href="#">Food & Cooking</a>
+          <a class="footer-link" href="#">Fitness & Health</a>
+          <a class="footer-link" href="#">Business & Finance</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">More</div>
+        <div class="footer-links">
+          <a class="footer-link" href="#">AI & Tech</a>
+          <a class="footer-link" href="#">Art & Painting</a>
+          <a class="footer-link" href="#">Gaming</a>
+          <a class="footer-link" href="#">Music & Audio</a>
+          <a class="footer-link" href="#">Lifestyle & Vlogs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Contora. Built for creators, by a creator.</div>
+      <div class="footer-bottom-links">
+        <a class="footer-bottom-link" href="#">Privacy</a>
+        <a class="footer-bottom-link" href="#">Terms</a>
+        <a class="footer-bottom-link" href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       QUIZ PAGE — 6-question onboarding
+       Questions are defined in js/quiz.js
+       ============================================================ -->
+  <div class="page" id="quiz">
+    <div class="quiz-wrap">
+      <div class="prog-wrap">
+        <div class="prog-top">
+          <span class="prog-label" id="progLabel">Step 1 of 6</span>
+          <span class="prog-pct" id="progPct">0%</span>
+        </div>
+        <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+      </div>
+      <div id="quizContent"></div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       LOADING PAGE — "Building your strategy..."
+       ============================================================ -->
+  <div class="page" id="loading">
+    <div class="loading-box">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="loading-t" id="loadingHeadline">Analyzing your niche...</div>
+      <div class="loading-s" id="loadingSub">This usually takes a few seconds. We're building something specific to you.</div>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       RESULT PAGE — the dashboard after quiz
+       Tab content is built dynamically in js/strategy.js
+       ============================================================ -->
+<div class="app-layout">       
+  <aside class="sidebar" id="sidebar">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:0 4px;margin-bottom:20px;">
+  <div class="sidebar-logo" style="margin-bottom:0">Contora</div>
+  <button id="sidebarToggle" class="sidebar-toggle-btn" title="Collapse sidebar">←</button>
+</div>
+
+  <nav class="sidebar-nav" id="tabs">
+    <div class="tab active" data-tab="strategy" onclick="switchTab('strategy')">
+      <span class="tab-icon">🎯</span>
+      <span class="tab-label">Strategy</span>
+    </div>
+
+    <div class="tab" data-tab="ideas" onclick="switchTab('ideas')">
+      <span class="tab-icon">💡</span>
+      <span class="tab-label">Content Ideas</span>
+    </div>
+
+    <div class="tab" data-tab="times" onclick="switchTab('times')">
+      <span class="tab-icon">⏰</span>
+      <span class="tab-label">Best Times</span>
+    </div>
+
+    <div class="tab" data-tab="tester" onclick="switchTab('tester')">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label">Hook Tester</span>
+    </div>
+
+    <div class="tab" data-tab="chat" onclick="switchTab('chat')">
+      <span class="tab-icon">💬</span>
+      <span class="tab-label">Ask Contora</span>
+    </div>
+  </nav>
+
+  <button 
+    type="button" 
+    class="sidebar-theme-btn" 
+    id="sidebarThemeBtn" 
+    title="Toggle theme"
+  >
+    🌑
+  </button>
+</aside>
+
+<main class="main-content">
+<div class="page" id="result">
+    <div class="result-hero fade" id="resultHero"></div>
+  
+    <!-- Tab content areas (filled by strategy.js) -->
+    <div class="tab-content active" id="tab-strategy"></div>
+    <div class="tab-content" id="tab-ideas"></div>
+    <div class="tab-content" id="tab-times"></div>
+
+    <!-- HOOK TESTER tab — static HTML, logic in hook-tester.js -->
+    <div class="tab-content" id="tab-tester">
+      <div class="hook-tester">
+        <div class="card-tag" style="margin-bottom:12px">📊 Hook Tester</div>
+        <p style="font-size:14px;color:var(--text2);margin-bottom:18px;line-height:1.6">Type or paste any hook below. We'll score it across 7 dimensions and tell you exactly what to fix.</p>
+        <div class="hook-input-wrap">
+        <textarea class="hook-textarea" id="hookInput" 
+          placeholder="e.g. Nobody talks about this..." 
+          oninput="updateCharCount(this); testHook()" 
+          maxlength="200"></textarea>
+          <span class="hook-char" id="hookChar">0/200</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+          <button class="btn-sm-ghost" onclick="clearHook()">Clear</button>
+        </div>
+        <div class="hook-score-wrap" id="hookScoreWrap"></div>
+      </div>
+    </div>
+
+    <!-- CHAT tab — Ask Contora -->
+    <div class="tab-content" id="tab-chat">
+      <div class="chat-box">
+        <div class="card-tag" style="margin-bottom:14px">💬 Ask Contora Anything</div>
+        <div class="chat-msgs" id="chatMsgs">
+          <div class="msg ai">Hey! Your strategy is ready. Ask me anything about content creation — hooks, trends, tools, what to post next. I know your niche so my answers will actually make sense. 🔥</div>
+        </div>
+        <div class="chat-row">
+          <input class="chat-in" id="chatIn" placeholder="Ask about hooks, trends, next video idea..." onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()">Send →</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end #result -->
+</main>
+</div>
+
+  <!-- ============================================================
+       THEME TOGGLE — dark/light mode
+       ============================================================ -->
+  <script>
+    let dark = false;
+    try {
+      if (localStorage.getItem('contoraTheme') === 'dark') {
+        dark = true;
+        document.body.setAttribute('data-theme', 'dark');
+      } else {
+        document.body.removeAttribute('data-theme');
+      }
+    } catch (e) {}
+
+    function syncThemeIcons() {
+      const icon = dark ? '🌕' : '🌑';
+      document.getElementById('themeBtn').textContent = icon;
+      const sb = document.getElementById('sidebarThemeBtn');
+      if (sb) sb.textContent = icon;
+    }
+    syncThemeIcons();
+
+    function setTheme(nextDark) {
+      dark = nextDark;
+      if (dark) {
+        document.body.setAttribute('data-theme', 'dark');
+      } else {
+        document.body.removeAttribute('data-theme');
+      }
+      try {
+        localStorage.setItem('contoraTheme', dark ? 'dark' : 'light');
+      } catch (e) {}
+      syncThemeIcons();
+    }
+
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      setTheme(!dark);
+    });
+    document.getElementById('sidebarThemeBtn').addEventListener('click', () => {
+      setTheme(!dark);
+    });
+
+  </script>
+
+  <!-- ============================================================
+       JS FILES — load order matters, don't change it
+       ============================================================ -->
+  <script src="js/sidebar.js"></script>
+  <script src="js/times-data.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/hook-tester.js"></script>
+  <script src="js/ideaEngine.js"></script>
+  <script src="js/strategy.js"></script>
+  <script src="js/cursor.js"></script>
+</body>
+</html>
