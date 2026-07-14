@@ -222,9 +222,13 @@ const CONTORA_TRENDS = CURRENT_TRENDS;
    8. CORE ENGINE
    ============================================================ */
 
+import { copyText, showToast } from './utils.js';
+
+export { CURRENT_TRENDS };
+
 // Session anti-repetition state
-const _usedKeys = new Set();
-const _usedStructureFingerprints = new Set();
+export const _usedKeys = new Set();
+export const _usedStructureFingerprints = new Set();
 window._ideasLoaded = 0;
 window._ideasNiche  = '';
 
@@ -297,7 +301,7 @@ function _nicheTitle(s) {
  * generateIdeas(niche, count, platform)
  * Called by strategy.js → buildIdeasTab()
  */
-function generateIdeas(niche, count, platform) {
+export function generateIdeas(niche, count, platform) {
   count = count || 5;
   const bank = _getIdeasBank(niche);
   const pm = _platformIdeaMeta(platform || window._ua?.platform);
@@ -358,7 +362,7 @@ function generateIdeas(niche, count, platform) {
  * remixIdea(title, niche)
  * Seeded remix — generates a fresh idea inspired by the original
  */
-function remixIdea(title, niche) {
+export function remixIdea(title, niche) {
   let h = 0;
   for (let i = 0; i < title.length; i++) h = ((h << 5) - h) + title.charCodeAt(i) | 0;
   const seed = (Math.abs(h) ^ (Date.now() % 2147483647)) >>> 0;
@@ -389,8 +393,13 @@ function remixIdea(title, niche) {
  * resetIdeaEngine()
  * Call on "Fresh Start" — clears session memory
  */
-function resetIdeaEngine() {
+export function resetIdeaEngine() {
   _usedKeys.clear();
   _usedStructureFingerprints.clear();
   window._ideasLoaded = 0;
 }
+
+// Expose globals for inline template access
+window.generateIdeas = generateIdeas;
+window.remixIdea = remixIdea;
+window.resetIdeaEngine = resetIdeaEngine;

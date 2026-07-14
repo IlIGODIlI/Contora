@@ -2,13 +2,13 @@
    CONTORA — HOOK AUDITOR v3.0 (PEAK PERFORMANCE)
    ============================================================ */
 
-let debounceTimer;
+export let debounceTimer;
 
-function updateCharCount(el) {
+export function updateCharCount(el) {
     document.getElementById('hookChar').textContent = el.value.length + '/200';
 }
 
-function testHook() {
+export function testHook() {
     const hook = document.getElementById('hookInput').value.trim();
     const wrap = document.getElementById('hookScoreWrap');
     
@@ -34,7 +34,7 @@ function testHook() {
     }, 1200);
 }
 
-function runPeakLogic(hook, wrap) {
+export function runPeakLogic(hook, wrap) {
     const lower = hook.toLowerCase();
     const words = hook.split(/\s+/);
     const wc = words.length;
@@ -125,8 +125,13 @@ function runPeakLogic(hook, wrap) {
         </div>`;
 }
 
-function clearHook() {
+export function clearHook() {
     document.getElementById('hookInput').value = '';
     document.getElementById('hookChar').textContent = '0/200';
     document.getElementById('hookScoreWrap').classList.remove('show');
 }
+
+// Expose globals for inline event handlers
+window.updateCharCount = updateCharCount;
+window.testHook = testHook;
+window.clearHook = clearHook;

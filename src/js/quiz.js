@@ -120,17 +120,21 @@ const questions = [
 /* ============================================================
    2. QUIZ STATE — don't edit these, they're runtime variables
    ============================================================ */
-let answers = {};
-let currentQ = 0;
+export let answers = {};
+export let currentQ = 0;
 let _isTransitioning = false; // blocks double-clicks during animation
+let _onQuizComplete = null;
 
+export function onComplete(cb) {
+  _onQuizComplete = cb;
+}
 
 /* ============================================================
    3. QUIZ NAVIGATION
    ============================================================ */
 
 // Switch between pages (landing / quiz / loading / result)
-function showPage(id) {
+export function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const page = document.getElementById(id);
   if (page) page.classList.add('active');
@@ -143,16 +147,19 @@ function showPage(id) {
 }
 
 // Start quiz from beginning
-function showQuiz() {
+export function showQuiz() {
   currentQ = 0;
   answers = {};
-  resolvedNiche = '';
+  if (window.strategyData) {
+    // Reset resolved niche to avoid state pollution
+    window._niche = '';
+  }
   showPage('quiz');
   renderQ();
 }
 
 // Render the current question (direction: 1 = forward, -1 = back)
-function renderQ(direction) {
+export function renderQ(direction) {
   const q = questions[currentQ];
   const pct = Math.round(((currentQ + 1) / questions.length) * 100);
 
@@ -222,7 +229,7 @@ function renderQ(direction) {
 }
 
 // Animate out current question, then render next
-function transitionTo(nextFn) {
+export function transitionTo(nextFn) {
   if (_isTransitioning) return;
   _isTransitioning = true;
 
@@ -243,7 +250,7 @@ function transitionTo(nextFn) {
 /* ============================================================
    4. OPTION SELECTION
    ============================================================ */
-function selOpt(el, qid) {
+export function selOpt(el, qid) {
   // Highlight selected option
   el.closest('.opts-grid,.opts-single').querySelectorAll('.opt,.opt-s').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
@@ -282,13 +289,13 @@ function selOpt(el, qid) {
 }
 
 // Handle custom niche text input
-function handleCustomNiche(val) {
+export function handleCustomNiche(val) {
   answers['niche_custom'] = val.trim();
   const continueBtn = document.getElementById('customContinueBtn');
   if (continueBtn) continueBtn.disabled = val.trim().length < 2;
 }
 
-function continueCustomNiche() {
+export function continueCustomNiche() {
   const v = (answers['niche_custom'] || '').trim();
   if (v.length < 2) return;
   setTimeout(() => {
@@ -303,18 +310,20 @@ function continueCustomNiche() {
 /* ============================================================
    5. BACK / NEXT BUTTONS
    ============================================================ */
-function goNext() {
+export function goNext() {
   if (currentQ < questions.length - 1) {
     transitionTo(() => {
       currentQ++;
       renderQ(1);
     });
   } else {
-    genStrategy(); // defined in strategy.js
+    if (_onQuizComplete) {
+      _onQuizComplete(answers);
+    }
   }
 }
 
-function goBack() {
+export function goBack() {
   if (currentQ > 0) {
     transitionTo(() => {
       currentQ--;
@@ -324,3 +333,15 @@ function goBack() {
     showPage('landing');
   }
 }
+
+export { questions };
+
+// Expose globals for backward compatibility with inline HTML event handlers
+window.showPage = showPage;
+window.showQuiz = showQuiz;
+window.goBack = goBack;
+window.goNext = goNext;
+window.selOpt = selOpt;
+window.handleCustomNiche = handleCustomNiche;
+window.continueCustomNiche = continueCustomNiche;
+window.answers = answers;
