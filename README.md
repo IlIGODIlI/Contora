@@ -105,6 +105,3 @@ npm run build
 
 ---
 
-## License
-
-Contora is open-source software licensed under the [MIT License](LICENSE).
